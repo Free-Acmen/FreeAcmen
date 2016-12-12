@@ -1,1 +1,1 @@
-git glup grunt webpack nodeJs learn
+git gulp grunt webpack nodeJs learn
