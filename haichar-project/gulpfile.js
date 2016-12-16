@@ -3,19 +3,20 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    jshint = require('gulp-jshint'),
+    less = require('gulp-less'),
+    //jshint = require('gulp-jshint'),
     del = require('del');
 
 //检查js
-gulp.task('jshint', function() {
-    gulp.src('./js/*.js')
-      .pipe(jshint())
-      .pipe(jshint.reporter('default'));
-});
+// gulp.task('jshint', function() {
+//     gulp.src('./js/*.js')
+//       .pipe(jshint())
+//       .pipe(jshint.reporter('default'));
+// });
 
 //css压缩
 gulp.task("minify_css",["clean"],function(){
-	var cssSrc=['./css/*.css'];
+	var cssSrc=['./css/**/*.css'];
 	return gulp.src(cssSrc)
 			.pipe(concat('main.css'))
 			.pipe(gulp.dest('./dest/css'))
@@ -26,13 +27,13 @@ gulp.task("minify_css",["clean"],function(){
 
 //压缩js
 gulp.task("minify_js",["clean"],function(){
-	var jsSrc=['./js/*.js'];
+	var jsSrc=['./js/**/*.js'];
 	return gulp.src(jsSrc)
 			.pipe(concat('main.js'))
 			.pipe(gulp.dest('./dest/js'))
 			.pipe(rename({suffix:'.min'}))
 			.pipe(uglify())
-			.pipe(gulp.dest('.dest/js'));
+			.pipe(gulp.dest('./dest/js'));
 });
 
 //清除之前压缩的文件
@@ -42,5 +43,5 @@ gulp.task('clean',function(){
 
 //默认任务
 gulp.task('default',function(){
-	gulp.run('minify_css','minify_js','jshint');
+	gulp.run('minify_css','minify_js');
 });
