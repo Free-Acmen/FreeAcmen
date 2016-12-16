@@ -1,4 +1,13 @@
 {
+  "name": "lmlong",
+  "version": "1.0.0",
+  "description": "haichar test nodejs gulp",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lml",
+  "license": "ISC",
   "devDependencies": {
     "del": "^2.2.2",
     "gulp-concat": "^2.6.1",
