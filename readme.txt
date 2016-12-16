@@ -1,4 +1,4 @@
-git gulp grunt webpack nodeJs learn
+﻿git gulp grunt webpack nodeJs learn
 
 gulp API docs
 1、gulp.src(globs[, options])
@@ -81,3 +81,16 @@ options.mode：  类型：String  默认：0777 指定被创建文件夹的权�
 	        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 	    });
 	});
+
+
+
+git config --global core.longpaths true
+
+git config --global core.autocrlf false
+
+命令：touch .gitignore             创建.gitignore文件
+在文件中写入需要忽略的文件（如：*.diff  ……具体见链接），或者不遵循忽略原则的特例（文件前加“！”）
+
+对于已入库的文件：http://my.oschina.net/zlLeaf/blog/197740
+命令：git update-index --assume-unchanged FILENAME       路径+文件名
+若以后不想忽略该文件的修改，则输入命令：git update-index --no-assume-unchanged FILENAME   
