@@ -1,6 +1,7 @@
 var gulp=require('gulp'),
     plumber=require('gulp-plumber'),
     less=require('gulp-less'),
+    autoprefixer=require('gulp-autoprefixer'),
     livereload=require('gulp-livereload'),
     notify=require('gulp-notify'),
     cleancss=require('gulp-clean-css'),
@@ -12,6 +13,7 @@ gulp.task('less',function(){
     gulp.src(config.src)
         .pipe(plumber())
         .pipe(less(config.settings))
+        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
         .pipe(gulp.dest('./src/css'))
         .pipe(concat('all.css'))
         .pipe(gulp.dest(config.dest))
