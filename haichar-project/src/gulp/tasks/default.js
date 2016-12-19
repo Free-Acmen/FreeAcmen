@@ -1,5 +1,5 @@
 var gulp=require('gulp');
 
-gulp.task('default',['clean'],function(){
-    gulp.start('jshint','less','script','images','watch');
+gulp.task('default',['jshint','clean'],function(){
+    gulp.start('less','script','images','watch');
 });

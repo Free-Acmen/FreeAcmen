@@ -3,11 +3,12 @@ var gulp=require('gulp'),
     cache=require('gulp-cache'),
     imagemin=require('gulp-imagemin'),
     pngquant=require('imagemin-pngquant'),
-    liverrload=require('gulp-livereload'),
+    livereload=require('gulp-livereload'),
+    notify=require('gulp-notify'),
     config=require('../config').images;
 
 gulp.task('images',function(){
-    return gulp.src(config.src)
+    gulp.src(config.src)
         .pipe(changed(config.dest))
         .pipe(cache(imagemin({
             optimizationlevel:5,

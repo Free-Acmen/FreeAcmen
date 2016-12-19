@@ -1,8 +1,6 @@
 
-var requireDir=require('reuqire-dir');
-
-requireDir('./gulp/tasks',{recurse:true});
-
+var requireDir=require('require-dir');
+requireDir('./src/gulp/tasks',{recurse:true});
 
 // var gulp = require('gulp'),
 //     //minifycss = require('gulp-minify-css'),  该插件已废弃，使用gulp-clean-css
