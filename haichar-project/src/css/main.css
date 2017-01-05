@@ -8,6 +8,7 @@ body {
 }
 div {
   border: 1px solid red;
-  background: #000;
-  transform: translate(50%, 50%);
+  background: #eee;
+  height: 200px;
+  color: red;
 }
