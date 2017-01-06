@@ -1,8 +1,8 @@
 {
-  "name": "sharephoto",
+  "name": "demo",
   "version": "1.0.0",
-  "description": "it is a project to partice vue",
-  "author": "FreeAcmen",
+  "description": "test",
+  "author": "lml",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -13,7 +13,9 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "vue": "^2.1.0"
+    "vue": "^2.1.0",
+    "vue-router": "^2.1.1",
+    "vuex": "^2.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

@@ -13,9 +13,10 @@
     import Header from './components/header';
     import Footer from './components/footer';
     import Loading from './components/loading';
-    import Index from './pages/index';
+    // import Index from './pages/index';
 
     export default{
+        name:"app",
         data : function(){
             return {
                 transtionName : "slide-left"
@@ -27,12 +28,19 @@
         watch:function(){
 
         },
-        computed:{},
+        computed:{
+            isFooter:function(){
+                return this.$store.state.common.indexConf.isFooter;
+            },
+            isLoading:function(){
+                return this.$store.state.common.isLoading;
+            }
+        },
         components:{
             gHeader:Header,
             gFooter:Footer,
-            gLoading:Loading,
-            gIndex:Index
+            gLoading:Loading
+            // gIndex:Index
         }
     }
 

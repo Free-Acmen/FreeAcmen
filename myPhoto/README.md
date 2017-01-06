@@ -1,6 +1,6 @@
-# sharephoto
+# demo
 
-> it is a project to partice vue
+> test
 
 ## Build Setup
 

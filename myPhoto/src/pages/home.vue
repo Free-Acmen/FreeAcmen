@@ -1,15 +1,15 @@
 <template>
-    <div>{{msg}}</div>
+    <div class="g-home">
+        home
+    </div>
 </template>
-
 <script>
     export default{
         data:function(){
-            msg:"loading"
+            msg:"footer"
         }
     }
 </script>
-
-<style lang="less" scoped>
+<style>
 
 </style>
