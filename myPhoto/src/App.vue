@@ -1,28 +1,43 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
-  </div>
+    <div class="g-app">
+        <g-header></g-header>
+        <transtion :name="transtionName">
+            <router-view class="child-view"></router-view>
+        </transtion>
+        <g-footer v-show="isFooter"></g-footer>
+        <g-loading v-show="isLoading"></g-loading>
+    </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+    import Header from './components/header';
+    import Footer from './components/footer';
+    import Loading from './components/loading';
+    import Index from './pages/index';
 
-export default {
-  name: 'app',
-  components: {
-    Hello
-  }
-}
+    export default{
+        data : function(){
+            return {
+                transtionName : "slide-left"
+            }
+        },
+        created:function(){
+
+        },
+        watch:function(){
+
+        },
+        computed:{},
+        components:{
+            gHeader:Header,
+            gFooter:Footer,
+            gLoading:Loading,
+            gIndex:Index
+        }
+    }
+
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less" scoped>
+
 </style>
