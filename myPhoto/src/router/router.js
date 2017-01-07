@@ -5,15 +5,15 @@ import Index from "../pages/index";
 import Home from "../pages/home";
 import HomeUserInfo from "../pages/homeuserinfo";
 
-Vue.use("Router");
+Vue.use(Router);
 
 const routes = [{
     path: "/",
-    component: "App",
+    component: App,
     children: [
-        { path: "/index/:type", name: "index", component: "Index" },
-        { path: "/home", name: "home", component: "Home" },
-        { path: "/homeuserinfo/:uid", name: "homeuserinfo", component: "HomeUserInfo" }
+        { path: "/index/:type", name: "index", component: Index },
+        { path: "/home", name: "home", component: Home },
+        { path: "/homeuserinfo/:uid", name: "homeuserinfo", component: HomeUserInfo}
     ]
 }];
 

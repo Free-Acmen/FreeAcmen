@@ -1,10 +1,10 @@
-import Vue from "vue";
-import Vuex from "vuex";
-Vue.use(Vuex);
+import Vue from "vue"
+import Vuex from "vuex"
+Vue.use(Vuex)
 
-new Vuex.Store({
+const store=new Vuex.Store({
     state:{
-        commom:{
+        common:{
             isloading:false,
             login:{
                 useId:"",
@@ -29,3 +29,5 @@ new Vuex.Store({
 
     }
 });
+
+export default store

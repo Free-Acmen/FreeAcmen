@@ -4,9 +4,10 @@
 
 <script>
     export default{
-        name:"footer",
-        data:function(){
-            msg:"footer"
+        data: function(){
+            return {
+                msg: 'footer'
+            }
         }
     }
 </script>

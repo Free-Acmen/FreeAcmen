@@ -1,15 +1,16 @@
 <template>
     <div>{{msg}}</div>
 </template>
-
 <script>
     export default{
         data:function(){
-            msg:"loading"
+            return {
+                msg: 'loading'
+            }
         }
     }
 </script>
 
-<style lang="less" scoped>
+<style scoped>
 
 </style>

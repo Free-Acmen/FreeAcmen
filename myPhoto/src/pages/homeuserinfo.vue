@@ -3,8 +3,10 @@
 </template>
 <script>
     export default{
-        data:function(){
-            msg:"hominfo"
+        data: function(){
+            return {
+                msg: 'hominfo'
+            }
         }
     }
 </script>

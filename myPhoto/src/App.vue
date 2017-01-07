@@ -1,11 +1,11 @@
 <template>
     <div class="g-app">
         <g-header></g-header>
-        <transtion :name="transtionName">
+        <transition :name="transtionName">
             <router-view class="child-view"></router-view>
-        </transtion>
-        <g-footer v-show="isFooter"></g-footer>
-        <g-loading v-show="isLoading"></g-loading>
+        </transition>
+        <g-footer v-show='isFooter'></g-footer>
+        <g-loading v-show='isLoading'></g-loading>
     </div>
 </template>
 
@@ -13,23 +13,23 @@
     import Header from './components/header';
     import Footer from './components/footer';
     import Loading from './components/loading';
-    // import Index from './pages/index';
+    import Index from './pages/index';
 
     export default{
-        name:"app",
-        data : function(){
+        name: 'app',
+        data: function(){
             return {
-                transtionName : "slide-left"
+                transtionName : 'slide-left'
             }
         },
-        created:function(){
+        created: function(){
 
         },
-        watch:function(){
+        watch: function(){
 
         },
         computed:{
-            isFooter:function(){
+            isFooter: function(){
                 return this.$store.state.common.indexConf.isFooter;
             },
             isLoading:function(){
@@ -37,15 +37,14 @@
             }
         },
         components:{
-            gHeader:Header,
-            gFooter:Footer,
-            gLoading:Loading
-            // gIndex:Index
+            gHeader: Header,
+            gFooter: Footer,
+            gLoading: Loading,
+            gIndex:Index
         }
     }
-
 </script>
 
-<style lang="less" scoped>
+<style scoped>
 
 </style>
