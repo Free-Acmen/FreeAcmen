@@ -11,13 +11,14 @@ const routes = [{
     path: "/",
     component: App,
     children: [
-        { path: "/index/:type", name: "index", component: Index },
-        { path: "/home", name: "home", component: Home },
-        { path: "/homeuserinfo/:uid", name: "homeuserinfo", component: HomeUserInfo}
+        { path: "index/:type", name: "index", component: Index },
+        { path: "home", name: "home", component: Home },
+        { path: "homeuserinfo/:uid", name: "homeuserinfo", component: HomeUserInfo}
     ]
 }];
 
 const router = new Router({
+    // mode: 'history',
     routes,
     linkActiveClass: "active",
     history: true

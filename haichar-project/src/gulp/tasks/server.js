@@ -4,7 +4,7 @@ var gulp=require('gulp'),
 gulp.task('server',function(){
     gulp.src('./src')
         .pipe(webserver({
-            port:8080,
+            port:8088,
             livereload:true,
             open:true // 服务器启动时自动打开网页
         }));

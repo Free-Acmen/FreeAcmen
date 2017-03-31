@@ -1,7 +1,6 @@
 <template>
     <div class="m-footer">{{msg}}</div>
 </template>
-
 <script>
     export default{
         data: function(){
