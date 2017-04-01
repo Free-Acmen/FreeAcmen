@@ -5,14 +5,15 @@ import App from './App'
 import store from './store/store'
 import router from './router/router'
 import FastClick from 'fastclick'
-
-Vue.config.productionTip = false
+import './config/fontsize'
 
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function() {
     FastClick.attach(document.body);
   }, false);
 }
+
+Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
