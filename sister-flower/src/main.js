@@ -5,8 +5,10 @@ import App from './App'
 import store from './store/store'
 import router from './router/router'
 import FastClick from 'fastclick'
-// import swiper from './plugins/swiper'
+import VueResource from'vue-resource'
 import './config/fontsize'
+
+Vue.use(VueResource)
 
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function() {

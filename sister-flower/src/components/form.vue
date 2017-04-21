@@ -1,21 +1,23 @@
 <template>
     <form class='m-form'>
-        <h4 class='title'>我的表单</h4>
+        <h5 class='title'>请填写以下信息:</h5>
         <div :class="{'active' : item.active}" v-for="(item, index) in form">
             <span @click="spanClick(item, index)">{{item.text}}</span>
-            <input type="text" ref="ipt" v-model="item.val" v-focus="item.focus" @focus="inputFocus(item, index)" @blur="inputBlur(item, index)">
+            <input type="text" ref="ipt" :name="item.name" v-model="item.val" v-focus="item.focus" @focus="inputFocus(item, index)" @blur="inputBlur(item, index)">
         </div>
+        <button type='button' @click='login'>登录</button>
     </form>
 </template>
 
 <script>
+    // import Fetch from '../config/fetch'
     export default {
         data(){
             return {
                 form:[
-                    {text: "用户名", val: "", active:false, focus:false},
-                    {text: "密  码", val: "", active:false, focus:false},
-                    {text: "验证码", val: "", active:false, focus:false}
+                    {text: "用户名", val: "", name: "account", active:false, focus:false},
+                    {text: "密  码", val: "", name: "password", active:false, focus:false},
+                    {text: "验证码", val: "", name: "test", active:false, focus:false}
                 ]
             }
         },
@@ -37,6 +39,31 @@
                 if(!item.val){
                     item.active = false
                 }
+            },
+            login(){
+                /*let data = {user: this.form.val, password: this.form.val, test: this.form.val}
+                let resData = Fetch('POST', '/api/login/getAccount',data);
+                console.log(data);
+                return data;*/
+                 // 获取已有账号密码
+                this.$http.get('/api/login/getAccount')
+                  .then((response) => {
+                    // 响应成功回调
+                    console.log(response)
+                    let params = {
+                      account : this.form[0].val,
+                      password : this.form[1].val,
+                      test : this.form[2].val
+                    };
+                    // 创建一个账号密码
+                    return this.$http.post('/api/login/createAccount',params);
+                  })
+                  .then((response) => {
+                    console.log(response)
+                  })
+                  .catch((reject) => {
+                    console.log(reject)
+                  });
             }
         }
     }
@@ -46,9 +73,9 @@
     @import '../style/mixin';
     .m-form{
         background-color:#fff;
-        padding: 0 .5rem;
+        padding:.5rem;
         .title{
-            text-align:center;
+            // text-align:center;
         }
         &>div{
             position:relative;

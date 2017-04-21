@@ -1,12 +1,14 @@
 <template>
     <header id='head-top' class="clear">
-        <slot name='logo'></slot>
+        <slot name='login'></slot>
         <router-link to='/hello' v-if='isTitle' class='left m-head-left'>To hello</router-link>
         <section class='m-head-content left'>
             {{title}}
         </section>
         <div class='right m-head-right'>
-            <span class='icon-user'></span>
+            <router-link to= "/login">
+                <span class='icon-user'></span>
+            </router-link>
             <span class='icon-th-list'></span>
         </div>
     </header>
@@ -16,10 +18,10 @@
     export default {
         data(){
             return {
-                title: '首页'
+
             }
         },
-        props: ['isTitle'],
+        props: ['isTitle', 'title'],
         computed: function(){
 
         }

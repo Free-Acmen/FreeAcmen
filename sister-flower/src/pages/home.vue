@@ -1,6 +1,6 @@
 <template>
     <div class='home'>
-        <m-head isTitle='home'></m-head>
+        <m-head isTitle='home' title='首页'></m-head>
         <section class='home-content'>
             <div class='swiper-container'>
                 <div class="swiper-wrapper">
@@ -16,7 +16,6 @@
                 <!-- 如果需要滚动条 -->
                 <!-- <div class="swiper-scrollbar"></div> -->
             </div>
-            <m-form></m-form>
             <div>
                 <img src="../assets/images/logo.png" alt="logo">
             </div>
@@ -27,7 +26,6 @@
 <script>
     import '../plugins/swiper'
     import mHead from '../components/header'
-    import mForm from '../components/form'
     import mFoot from '../components/footer'
     import banner1 from '../assets/images/banner1.jpg'
     import banner2 from '../assets/images/banner2.jpg'
@@ -50,7 +48,6 @@
         components: {
             mHead,
             mFoot,
-            mForm
         },
         created(){
             console.log(2)
