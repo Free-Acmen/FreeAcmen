@@ -1,0 +1,229 @@
+<script type="text/javascript">
+    var _url__rule_ = {{if $data.url_rule}}{{$data.url_rule}}{{else}}{}{{/if}};
+</script>
+<!--<div class="cu-list-ad">-->
+    <!--<img src="/tpl/www/image/custommade/cu-list-ad-img01.png" width="100%" height="200" alt=""/>-->
+<!--</div>-->
+<div style="background: #fff;">
+
+    <div class="cu-wrap">
+        <div class="cu-crumbs-nav">
+            {{$data.x_nav}}面包屑
+        </div>
+        {{* 产品二级导航 *}}
+        {{if $data.navigation}}
+        <div class="m-list-nav" style="margin-bottom: 0;">
+            <ul>
+                <li class="m-nav-n1"><span></span><em>{{$data.thiscity}}旅游产品</em><span></span></li>
+                <li class="m-nav-n2">
+                    {{foreach from=$data.navigation[0] item=arr}}
+                    <a href="{{$arr.psn_url}}" target="{{if $arr.open_mode}}_blank{{else}}_self{{/if}}"
+                       class="{{if strstr($arr.psn_url,'/private_group/') && strstr($data.request_url,'/private_group/')}}active{{/if}}">
+                        <span>{{$arr.psn_name}}</span>
+                    </a>
+                    {{/foreach}}
+                </li>
+                <li class="m-nav-n3">
+                    {{foreach from=$data.navigation[1] item=arr}}
+                    <a href="{{$arr.psn_url}}" target="{{if $arr.open_mode}}_blank{{else}}_self{{/if}}">{{$arr.psn_name}}</a>
+                    {{/foreach}}
+                </li>
+            </ul>
+        </div>
+        {{/if}}
+
+        <div class="cu-pri-tour">
+            <div>
+                <h2 class="title">以下是走四方为客户精心定制的旅行方案<b></b></h2>
+                <p>您喜欢的话可以直接定制这些旅行方案，也可以提交您的需求由我们为您量身定制。</p>
+            </div>
+            <div class="cu-pri-btn">定制行程</div>
+        </div>
+
+        <div class="modal">
+            {{include file="templates/custommade/m_custo_from.html" page="custo-list" display="block"}}
+        </div>
+
+
+        <div class="cu-list-head" style="padding-top: 20px;">
+            {{if $data.select_attractions}}
+            <div class="cu-list-sel-ok">
+                <p class="cu-list-sel-txt">你已经选择:</p>
+                <div class="clear">
+                    <ul class="cu-list-sel-nv clear">
+                        {{foreach name=f1 item=val from=$data.select_attractions}}
+                        <li{{if $smarty.foreach.f1.first}} class="active"{{/if}}>
+                        <a href="{{$val.href}}"><span>{{$val.name}}</span>
+                            <i class="cust-ico cu-list-sel-close"></i>
+                            <em class="cust-ico cu-list-sel-s"></em></a>
+                        </li>
+                        {{/foreach}}
+                    </ul>
+                    <a href="{{$data.clear_serach_url}}" class="fl cu-list-sel-clear">全部清除</a>
+                </div>
+            </div>
+            {{/if}}
+
+            <ul class="cu-list-sel-tab clear cursor" id="select">
+                <li class="cu-list-sel-tab-a">
+                    <p class="cu-list-fi-a clear">
+                        <i class="cust-ico cu-list-sel-tab-ico1"></i>
+                        <strong>游玩城市</strong>
+                        <span class="cust-ico"></span>
+                    </p>
+                    <div class="cu-seek-cont hide">
+                        <i class="cust-ico cu-seek-cont-close"></i>
+                        <div class="cu-seek-cont-rec clear">
+                            <span id="0">推荐目的地</span>
+                            {{foreach item=val name=cat_list from=$data.cat_list}}
+                                {{if $data.select_catrangetag_id}}
+
+                                {{if $val.recommend && $data.select_catrangetag_id == $val.id}}
+                                    <span id="{{$val.id}}">{{$val.name}}</span>
+                                {{/if}}
+                            {{else}}
+                            {{if $val.recommend}}
+                            <span id="{{$val.id}}">{{$val.name}}</span>
+                            {{/if}}
+                            {{/if}}
+                            {{/foreach}}
+                        </div>
+                        <div class="cu-seek-btm">
+                            <ul class="cu-seek-cont-sel clear JS-attractions-list">
+                            </ul>
+                            <div class="cu-seek-btn hide JS-attractions-pagebar">
+                            </div>
+                            <div class="submit_btn"><button type="button" class="btn-ok">确定</button>&nbsp;<button type="button" class="btn-close">取消</button> </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="cursor">
+                    <i class="cust-ico cu-list-sel-tab-ico2"></i>
+                    <strong>主题类型</strong>
+                    <span class="cust-ico"></span>
+                    <dl class="cu-list-sel-box">
+                        {{foreach item=val from=$data.zhuti_list}}
+                        <dd><a href="{{$val.href}}" data-id="{{$val.id}}">{{$val.theme_name}}</a></dd>
+                        {{/foreach}}
+                    </dl>
+                </li>
+                <li class="cursor">
+                    <i class="cust-ico cu-list-sel-tab-ico3"></i>
+                    <strong>参团城市</strong>
+                    <span class="cust-ico"></span>
+                    <dl class="cu-list-sel-box-i cu-list-sel-box">
+                        {{foreach item=val from=$data.departure}}
+                        <dd><a href="{{$val.href}}" data-id="{{$val.id}}">{{$val.name}} </a></dd>
+                        {{/foreach}}
+                    </dl>
+                </li>
+                <li class="cursor">
+                    <i class="cust-ico cu-list-sel-tab-ico4"></i>
+                    <strong>行程天数</strong>
+                    <span class="cust-ico"></span>
+                    <dl class="cu-list-sel-box-i cu-list-sel-box">
+                        {{foreach item=val from=$data.days}}
+                        <dd><a  href="{{$val.href}}" data-id="{{$val.id}}">{{$val.name}}</a></dd>
+                        {{/foreach}}
+                    </dl>
+                </li>
+            </ul>
+        </div>
+
+        {{if $data.product_list.list}}
+        <ul class="cu-list-main">
+            {{foreach item=val from=$data.product_list.list}}
+            <!--<li class="clear">
+                <div class="cu-list-main-l fl">
+                    <a href="{{$val.products_url_href}}"><img src="{{if $val.productsImageSrc}}{{$val.productsImageSrc}}{{else}}{{$val.products_image}}{{/if}}" width="450" height="300" alt="{{$val.products_name}}"/></a>
+                    <div class="cu-list-main-l-sh"></div>
+                    <div class="cu-list-main-l-txt">
+                        {{if $val.theme_name}}
+                            &lt;!&ndash;<p class="fl">主题类型：{{$val.theme_name}}</p>&ndash;&gt;
+                        {{/if}}
+                        <span class="fr">团号：<i class="JS_ismodel">{{$val.products_model}}</i></span>
+                    </div>
+                </div>
+                <div class="cu-list-main-c fl">
+                    <dl>
+                        <dt><a href="{{$val.products_url_href}}" title="{{$val.products_name}}">{{$val.products_name}}</a> </dt>
+                        <dd class="cu-list-main-m-txt clear">{{$val.products_small_description}}</dd>
+                        <dd class="cu-list-main-b-txt mt46">参团城市：{{$val.startCity}}</dd>
+                        <dd class="cu-list-main-b-txt">{{if $val.mbooking_status}}{{$val.priceTag}}/人{{else}}<span class="soldout">已售完</span>{{/if}}</dd>
+                    </dl>
+                </div>
+                <div class="cu-list-main-r fl">
+                    <a href="{{$val.products_url_href}}"><i class="cust-ico"></i></a>
+                </div>
+            </li>-->
+            <li class="clear">
+                <div class="custo-list-img">
+                    <a href="{{$val.products_url_href}}" target="_blank"><img src="{{if $val.productsImageSrc}}{{$val.productsImageSrc}}{{else}}{{$val.products_image}}{{/if}}" alt="{{$val.products_name}}"/></a>
+                </div>
+                <dl class="custo-list-conte">
+                    <dt><a href="{{$val.products_url_href}}" title="{{$val.products_name}}">{{$val.products_name}}</a> </dt>
+                    <dd>走四方根据用户&nbsp;"<strong>hdfk</strong>"&nbsp;的需求制定旅行方案</dd>
+                    <dd class="cu-start-city">出发城市 : <span>洛杉矶\纽约</span></dd>
+                    <dd class="cu-pro-num">人数 : <span>6人</span></dd>
+                    <dd class="cu-pro-pri">人均预算 : <span>$666</span></dd>
+                    <dd class="cu-program">方案编号 : <span>SD899-79898</span></dd>
+                </dl>
+            </li>
+            {{/foreach}}
+        </ul>
+
+        <div class="pro-list-pager pager-top" >
+            <ul id="listPages">
+                {{if $data.product_list.pages.previous_href}}
+                <li class="current"><a href="{{$data.product_list.pages.previous_href}}">上一页</a></li>
+                {{/if}}
+                {{if $data.product_list.pages.pages_list}}
+                {{foreach item=val from=$data.product_list.pages.pages_list}}
+                {{if $val.selected == 1}}
+                <li class="current"><span>{{$val.text}}</span></li>
+                {{else}}
+                <li><a href="{{$val.href}}">{{$val.text}}</a></li>
+                {{/if}}
+                {{/foreach}}
+                {{/if}}
+                {{if $data.product_list.pages.next_href}}
+                <li><a href="{{$data.product_list.pages.next_href}}">下一页</a></li>
+                {{/if}}
+                {{*<li class="pages-go ml16">到</li>
+                <li class="pages-go"><input type="text"/></li>
+                <li class="pages-go">页</li>
+                <li class="pages-go"><button>确定</button></li>*}}
+            </ul>
+        </div>
+        {{else}}
+        <div class="cu-list-ad-foot">
+            <!--<a href="{{$data.dinzhi_href}}">
+                <img src="/tpl/www/image/custommade/cu-list-ad-foot-img.png" width="100%" height="200" alt=""/>
+            </a>-->
+            <p class="tip">找不到符合的私家包团产品,您可以定制属于自己的行程</p>
+            <button class="list-no-btn custo-btn">定制行程</button>
+        </div>
+        {{/if}}
+
+
+    </div>
+</div>
+<!--[if lte IE 9]>
+<style type="text/css">
+    .cu-seek-cont-sel li.selected p span{
+        background:url(/tpl/www/image/custommade/select.png);
+        border:none;
+        width:18px;
+        height:15px;
+    }
+</style>
+<![endif]-->
+<script type="text/javascript">
+var getAttributeUrl = '{{$data.getAttributesUrl}}';
+var via_city = '{{$data.selected_data.via_city}}';
+var start_city = '{{$data.selected_data.start_city}}';//$('#start_city').val();
+var days = '{{$data.selected_data.days}}';//$('#days').val();
+var zt = '{{$data.selected_data.themes_type_id}}';
+var rg = '{{$data.select_catrangetag_id}}';
+</script>
+

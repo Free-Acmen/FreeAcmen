@@ -1,0 +1,154 @@
+
+<style>
+    .block{display:block;}
+    .hide{display:none;}
+    .m-custo-form{
+        width:440px;
+        height:360px;
+        padding:30px 60px;
+        background-color:#fff;
+        border:1px solid #C0C0C0;
+    }
+    .m-custo-form h2{
+        position:relative;
+        font-size:32px;
+        text-align:center;
+    }
+    .m-custo-form h2:before,.m-custo-form h2:after{
+        content:"";
+        display:block;
+        position:absolute;
+        width:60px;
+        border-bottom:1px solid #000;
+        top:26px;
+    }
+    .m-custo-form h2:before{
+        left:90px;
+    }
+    .m-custo-form h2:after{
+        right:90px;
+    }
+    .m-custo-form>p{
+        font-size:18px;
+        text-align:center;
+    }
+    .m-custo-form input{
+        outline: none;
+        width:100%;
+        height:40px;
+        border-radius:6px;
+    }
+    .m-custo-form form>input{
+        box-sizing:border-box;
+        border:1px solid #DFE3E5;
+        padding-left:50px;
+        margin-top:20px;
+        position:relative;
+    }
+    .m-custo-form input.cu-dest{
+        background-image:url(/tpl/www/image/custommade/cu-sprits.png);
+        background-repeat:no-repeat;
+        background-position: -225px 5px;
+    }
+    .m-custo-form input.cu-email{
+        background-image:url(/tpl/www/image/custommade/cu-sprits.png);
+        background-repeat:no-repeat;
+        background-position: -224px -35px;
+        /*background:url(/tpl/www/image/custommade/cu-sprits.png) no-repeat -126% -35px;*/
+    }
+    #custo-telephone{
+        margin-top:20px;
+    }
+    #custo-telephone .area-box{
+        height:38px;
+    }
+    #custo-telephone .area-wrap .area-box i.flag{
+        padding-right:10px;
+    }
+    #custo-telephone .area-box .areas{
+        width:125px;
+        height:38px;
+        margin-right:10px;
+        border:1px solid #DFE3E5;
+    }
+    #custo-telephone .area-wrap .area-box input.areaname{
+        height:38px;
+        width: 75px !important;
+        background-color:#fff;
+        border-radius:6px;
+    }
+    #custo-telephone .area-wrap .area-box input.phone{
+        box-sizing:border-box;
+        padding-left:40px;
+        height:38px;
+        border:1px solid #DFE3E5;
+        width:286px;
+        background-image:url(/tpl/www/image/custommade/cu-sprits.png);
+        background-repeat:no-repeat;
+        background-position: -230px -82px;
+        border-radius:6px;
+    }
+
+    .m-custo-form .cu-area{
+        box-sizing:border-box;
+        margin-top: 20px;
+        border:1px solid #E2E2E2;
+        width:100%;
+        height:95px;
+        padding:10px 15px;
+        resize:none;
+        outline:none;
+    }
+    .m-custo-form .custo-btn{
+        display:block;
+        width:205px;
+        height:40px;
+        border:0;
+        color:#fff;
+        background-color:#FA8532;
+        margin:20px auto 0;
+        font-size:18.6px;
+    }
+    .modal-close{
+        position:absolute;
+        top:-16px;
+        right:-18px;
+        width:45px;
+        height:45px;
+        border-radius:25px;
+        background-color:#ED8525;
+        color:#fff;
+        text-align:center;
+        line-height:40px;
+        font-size:35px;
+        cursor: pointer;
+    }
+</style>
+<div class="modal-content {{$page}}" >
+    <div class="m-custo-form">
+        <h2>定制旅游</h2>
+        <p>{{if $title}}{{$title}}{{else}}不跟团  不自助  专车专导  尊贵出行{{/if}}</p>
+        <form name="custo-form" action="$action" method="post">
+            <input type="text" name="custo-dest" class="cu-dest" placeholder="请填写您想去的目的地">
+            <input type="text" name="custo-email" class="cu-email" placeholder="请填写您的邮箱">
+            <div id="custo-telephone"></div>
+            <textarea name="custo-area" class="cu-area {{if $areaS==true}}block{{else}}hide{{/if}}" cols="30" rows="10" placeholder="可填写备注信息"></textarea>
+            <button type="submit" class="custo-btn">定制行程</button>
+        </form>
+    </div>
+    <div class="modal-close {{$display}}">&times;</div>
+</div>
+
+<script>
+    new usitrip.widget.MobilePhoneField({
+        el:'#custo-telephone',
+        initValue:{
+            phoneWidth:292,
+            zhWidth:34,
+            phoneValue:''
+        },
+        name:'custo-telephone',
+        tipson:false
+    });
+    $(".area-wrap .area-box input.phone").attr("placeholder","请填写您的手机号码")
+</script>

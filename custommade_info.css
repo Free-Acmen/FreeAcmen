@@ -1,0 +1,628 @@
+@charset "utf-8";
+body, button, input, select, textarea {
+    font: 12px/1.5 'Microsoft Yahei',  Arial, \5b8b\4f53, Helvetica, sans-serif;
+}
+
+body.bg1 {
+    background: #F8F8F8;
+}
+
+body.bg2 {
+    background: #fff;
+}
+
+body.bg3 {
+    background: #DFDFDF;
+}
+
+body.bg4 {
+    background: #F3F3F3
+}
+body {
+    background: #F3F3F3
+}
+.m-nav-wrap {
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.cu-nav {
+}
+
+.cu-nav li {
+    float: left;
+    line-height: 100px;
+}
+
+.cu-nav li a {
+    font-size: 14px;
+    color: #535353;
+    padding: 0 12px;
+}
+
+.cu-nav li a:hover {
+}
+
+.cu-wrap {
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+.cu-wrap:after{
+    content:"";
+    display:table;
+}
+
+
+.cu-wrap .show {
+    display: block;
+}
+
+.cu-wrap .hide {
+    display: none;
+}
+
+.cu-wrap.ptb70 {
+    padding: 70px 0;
+    padding-bottom: 0px;
+}
+
+/*面包屑*/
+.cu-crumbs-nav {
+    height: 50px;
+    line-height: 50px;
+    color: #747474;
+}
+
+.cu-crumbs-nav a {
+    color: #747474;
+}
+
+.cu-crumbs-nav a:hover {
+    color: #ff6600;
+}
+
+.cu-crumbs-nav ul {
+    height: 50px;
+    line-height: 50px;
+    color: #747474;
+}
+
+.cu-crumbs-nav ul li {
+    float: left;
+}
+
+.cu-crumbs-nav ul li em {
+    font-family: "\u5b8b\u4f53";
+    margin: 0 5px;
+}
+
+.cu-crumbs-nav ul li a {
+    color: #747474;
+}
+
+/*广告图*/
+.cu-list-main {
+    margin-bottom: 60px;
+}
+
+.cu-list-main li {
+    padding: 25px 0;
+    background: #fff;
+    position:relative;
+    /*border-top: 2px solid #EEEEEE;*/
+}
+
+
+/*模态弹出样式*/
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index:100;
+    background-color:rgba(0,0,0,.6);
+    display:none;
+}
+.modal .modal-content{
+    width:560px;
+    height:420px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-top:-280px;
+    margin-left:-210px;
+}
+.modal-close{
+    position:absolute;
+    top:-16px;
+    right:-18px;
+    width:45px;
+    height:45px;
+    border-radius:25px;
+    background-color:#ED8525;
+    color:#fff;
+    text-align:center;
+    line-height:40px;
+    font-size:35px;
+}
+
+/*详情页面也用到该样式*/
+.cu-list-main{
+    position:relative;
+}
+
+.cu-list-main li:hover {
+    background: #F9F9F9;
+}
+.cu-list-main .custo-list-img{
+    height:400px;
+}
+.cu-list-main .custo-list-img img{
+    width:100%;
+    height:100%;
+}
+.cu-list-main .custo-list-conte{
+    box-sizing:border-box;
+    position:absolute;
+    left:0;
+    bottom:25px;
+    width:100%;
+    height:100px;
+    background-color:rgba(0,0,0,.5);
+    overflow:hidden;
+    padding:0 20px;
+}
+.cu-list-main .custo-list-conte dt{
+    padding:10px 0 10px 35px;
+}
+.cu-list-main .custo-list-conte dt a{
+    color:#fff;
+    font-size:24px;
+    display:block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position:relative;
+}
+.cu-list-main .custo-list-conte dt:before{
+    content:"";
+    position:absolute;
+    top:10px;
+    left:20px;
+    width:30px;
+    height:40px;
+    background:url(/tpl/www/image/custommade/cu-sprits.png) no-repeat 2px -93px;
+}
+.cu-list-main .custo-list-conte dd{
+    font-size:14px;
+    float:left;
+    padding:6px 50px 0 0;
+    color:#AEAEAE;
+    position:relative;
+}
+.cu-list-main .custo-list-conte dd strong{
+    font-weight: normal;
+    color:#F18323;
+}
+.cu-list-main .custo-list-conte dd span{
+    color:#fff;
+}
+.cu-list-main .custo-list-conte dd:before{
+    content:"";
+    position:absolute;
+    top:-2px;
+    left:-28px;
+    width:25px;
+    height:25px;
+    background-repeat:no-repeat;
+}
+
+.cu-list-main .custo-list-conte dd.cu-start-city:before{
+    background-image:url(/tpl/www/image/custommade/cu-sprits.png);
+    background-position: -31px -103px;
+}
+.cu-list-main .custo-list-conte dd.cu-pro-num:before{
+    background-image:url(/tpl/www/image/custommade/cu-sprits.png);
+    background-position: -69px -103px;
+}
+.cu-list-main .custo-list-conte dd.cu-pro-pri:before{
+    background-image:url(/tpl/www/image/custommade/cu-sprits.png);
+    background-position: -102px -103px;
+}
+.cu-list-main .custo-list-conte dd.cu-program:before{
+    background-image:url(/tpl/www/image/custommade/cu-sprits.png);
+    background-position: -132px -103px;
+}
+
+.custo-btn{
+    width:180px;
+    height:40px;
+    border:0;
+    color:#fff;
+    background-color:#ED8525;
+    font-size:18px;
+    cursor: pointer;
+}
+
+/*详情行程特色 用户评价*/
+.cu-travel-chara,.cu-user-rat{
+    overflow:hidden;
+    border:1px solid #ECECEC;
+    margin-bottom:25px;
+    height:180px;
+}
+.cu-travel-chara .title,.cu-user-rat .title{
+    width:10%;
+    height:100%;
+    line-height:180px;
+    background-color:#F0F0F0;
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+}
+.cu-travel-chara .content,.cu-user-rat .content{
+    width:90%;
+}
+.cu-travel-chara .content{
+    font-size:16px;
+    position:relative;
+}
+.cu-travel-chara .content p{
+    padding:20px 25px;
+    width:73%;
+    line-height:28px;
+}
+.cu-travel-chara .travel-chara-btn{
+    position:absolute;
+    top:30px;
+    right:50px;
+}
+.cu-travel-chara .cu-online-adv{
+    position:absolute;
+    top:90px;
+    right:80px;
+    display:inline-block;
+    color:#fff;
+    width:100px;
+    height:30px;
+    padding-left:20px;
+    line-height:30px;
+    text-align:center;
+    cursor:pointer;
+    background-color:#3C95EB;
+    background-image:url(/tpl/www/image/custommade/cu-sprits.png);
+    background-repeat:no-repeat;
+    background-position:-228px -125px;
+}
+.cu-user-rat{
+    height:230px;
+}
+.cu-user-rat .title{
+    line-height:230px;
+}
+.cu-user-rat .content{
+    height:100%;
+    font-size:14px;
+}
+.cu-user-rat .content dl{
+    overflow:hidden;
+    height:100%;
+}
+.cu-user-rat .content dt{
+    width:135px;
+    height:100%;
+    text-align:center;
+    padding-top:20px;
+}
+.cu-user-rat .content dt p{
+    margin-top:20px;
+}
+.cu-user-rat .content dd{
+    width:85%;
+    line-height:26px;
+}
+.cu-user-rat .content dd.cuto-satis{
+    padding:20px 0;
+}
+.cu-user-rat .content dd.cuto-satis span{
+    margin-right:35px;
+    color:#B5B5B5;
+}
+
+/*行程介绍*/
+.cuto-info-main{
+    overflow:hidden;
+    border:1px solid #E4E4E4;
+    margin-bottom:50px;
+}
+.cuto-info-main .cuto-main-left{
+    width:130px;
+    min-height:60px;
+    position:relative;
+}
+.cuto-info-main .cuto-main-left ul{
+    width:130px;
+    height:100%;
+}
+.cuto-info-main .left-first{
+    font-size:20px;
+    color:#fff;
+    background-color:#3C95EB;
+    font-weight: bold;
+    text-align:center;
+    padding:15px 0;
+    margin-bottom:15px;
+}
+
+.cuto-info-main .cuto-main-left li:not(:first-child){
+    background-color:#A8A8A8;
+    border-radius:26px;
+    height:36px;
+    width:36px;
+    text-align:center;
+    line-height:35px;
+    color:#fff;
+    margin-bottom:25px;
+    margin-left:47px;
+    position:relative;
+    cursor:pointer;
+}
+.cuto-info-main .cuto-main-left li:not(:last-child):not(:first-child):after{
+    content:"";
+    display:inline-block;
+    height:25px;
+    border-left:1px solid #E4E4E4;
+    position:absolute;
+    bottom:-25px;
+    left:18px;
+}
+
+.cuto-info-main .cuto-main-left li.selected{background-color:#3C95EB;}
+
+.cuto-info-main .cuto-main-right{
+    width:1067px;
+    font-size:14px;
+    border-left:1px solid #E4E4E4;
+}
+.cuto-info-main .cuto-info-day{
+    padding:0 20px;
+    border-bottom:1px dashed #D2D2D2;
+}
+.cuto-info-main .cuto-info-day:last-child{
+    border:0;
+}
+.cuto-info-main .cuto-info-day h1{
+    font-size:22px;
+    padding:20px 0;
+}
+.cuto-info-main .cuto-info-day h1 span{
+    color:#3694F2;
+}
+.cuto-info-main .cuto-hotel,.cuto-info-main .cuto-attrac-title{
+    margin-bottom:25px;
+}
+.cuto-info-main .cuto-hotel strong,.cuto-info-main .cuto-attrac-title{
+    padding-left:20px;
+    font-weight:bold;
+    position:relative;
+}
+.cuto-info-main .cuto-hotel strong:before,.cuto-info-main .cuto-attrac-title:before{
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-image: url(/tpl/www/image/custommade/cu-sprits.png);
+}
+.cuto-info-main .cuto-hotel strong:before{
+    background-position: -143px -14px;
+}
+.cuto-info-main .cuto-attrac-title:before{
+    background-position: -120px 2px;
+    background-size:136px 140px;
+}
+
+.cuto-info-main .cuto-attrac-cont{
+    overflow:hidden;
+    margin-bottom:35px;
+}
+.cuto-info-main .cuto-attrac-cont dd{
+    width:74%;
+}
+.cuto-info-main .cuto-attrac-cont dd h2{
+    padding:5px 0;
+    margin-bottom:10px;
+}
+
+/*行程内容文本样式*/
+.md-a-txt {
+    color: #585858;
+    line-height: 24px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: Justify;
+}
+
+.md-a-txt-tit {
+    font-size: 14px;
+    color: #585858;
+    font-weight: bold;
+}
+
+#md-a-txt-WenXin{
+    font-size: 12px;
+    color: #878787;
+}
+#md-a-txt-WenXin p{
+    font-size: 14px;
+    color: #878787;
+}
+
+
+/**行程内容描述文本类 mengdj*/
+.md-a-txt a.xm_img_title {
+    position: relative;
+}
+
+.md-a-txt a.xm_img_title:hover {
+    color: #f70;
+    text-decoration: none;
+    z-index: 2;
+}
+
+.md-a-txt a.xm_img_title span.xm_img_arr {
+    background: rgba(0, 0, 0, 0) url("/tpl/www/image/tip_top.gif") no-repeat scroll 0 0;
+    display: none;
+    height: 8px;
+    left: 0;
+    position: absolute;
+    top: 17px;
+    width: 13px;
+}
+
+.md-a-txt a.xm_img_title img {
+    background: #fffcf0 none repeat scroll 0 0;
+    border: 1px solid #fede77;
+    display: none;
+    padding: 8px;
+    position: absolute;
+    top: 24px;
+}
+.md-a-txt a.xm_img_title:hover span.xm_img_arr, .md-a-txt a.xm_img_title:hover img {
+    display: block;
+    z-index: 500;
+}
+
+/*相似案例*/
+.cuto-sim-case{
+    border:1px solid #E4E4E4;
+    padding:12px 10px;
+}
+.cuto-sim-case .case-title span{
+    font-size:20px;
+    font-weight:bold;
+}
+.cuto-sim-case .case-title span i{
+    display:inline-block;
+    background-color:#2F97F9;
+    margin-right:10px;
+    width:6px;
+    height:21px;
+    position:relative;
+    top:4px;
+}
+.cuto-sim-case .case-title a{
+    color:#B4B4B4;
+    font-size:14px;
+    line-height:30px;
+}
+.cuto-sim-case .case-content{
+    overflow:hidden;
+    margin-top:20px;
+}
+.cuto-sim-case .case-content dl{
+    width:375px;
+    margin-right:26px;
+}
+.cuto-sim-case .case-content dl:last-child{
+    margin:0;
+}
+.cuto-sim-case .case-content dl dt:before{
+    content:"";
+    display:table;
+}
+.cuto-sim-case .case-content dl dt{
+    height:365px;
+    text-align:center;
+}
+.cuto-sim-case .case-content .case-name{
+    margin-top:90px;
+    padding:5px 0;
+    font-size:21px;
+    color:#fff;
+    font-weight:normal;
+}
+.cuto-sim-case .case-content .case-en-name{
+    display:inline-block;
+    width:238px;
+    height:32px;
+    background-color:rgba(255,255,255,.7);
+    color:rgba(0,0,0,.6);
+    font-size:24px;
+    line-height:32px;
+    border-radius:4px;
+    margin-bottom:110px;
+}
+.cuto-sim-case .case-content .case-day-peo{
+    color:#fff;
+    font-size:21px;
+
+}
+.cuto-sim-case .case-content .case-day-peo span{
+    position:relative;
+    padding-left:32px;
+}
+.cuto-sim-case .case-content .case-day-peo span:first-child{
+    margin-right:60px;
+}
+.cuto-sim-case .case-content .case-day-peo span:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:30px;
+    height:26px;
+    background-image:url(/tpl/www/image/custommade/cu-sprits.png);
+    background-repeat:no-repeat;
+}
+.cuto-sim-case .case-content .case-day-peo span:first-child:before{
+    background-position:-76px -8px;
+}
+.cuto-sim-case .case-content .case-day-peo span:last-child:before{
+    background-position:-76px -43px;
+}
+.cuto-sim-case .case-content dd:before{
+    content:"";
+    display:table;
+}
+.cuto-sim-case .case-content dd{
+    background-color:#F7F7F7;
+}
+
+.cuto-sim-case .case-content .cu-case-price{
+    margin-top:15px;
+    padding:10px 5px;
+    border-bottom:1px solid #DFDFDF;
+    font-size:16px;
+    color:#1B9AF7;
+    text-align:center;
+}
+.cuto-sim-case .case-content .cu-case-price span{
+    color:#FA8532;
+}
+
+.cuto-sim-case .case-content .cu-case-review{
+    color:#A2A2A2;
+    font-size:13px;
+    padding:10px 15px;
+    line-height:22px;
+}
+
+/*详情页面定制框*/
+.custo-info .m-custo-form{
+    height:430px;
+}
+.custo-info .m-custo-form h2:before, .m-custo-form h2:after {
+    border-color: #E0E0E0;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>avalon</title>
+    <script src="js/avalon.js"></script>
+</head>
+<body>
+    <div>
+        avalon常用命令<br>
+        ms-controller<br>
+        1.0 ms-repeat="arr"/el,$first,$last,$index| 2.0以后用ms-for = "{$index,el} in @arr"<br>
+        ms-duplex<br>
+        ms-visible | ms-class | ms-if-loop<br>
+
+        avalon指令质询顺序<br>
+        ms-skip --> ms-important --> ms-controller --> ms-if --> ms-repeat --> ms-if-loop --> ...-->ms-each --> ms-with --> ms-duplex<br>
+    </div>
+    <script>
+        
+    </script>
+    <div ms-controller="test">
+        <select name="first" id="firstS" ms-duplex="firseSelect">
+            <option ms-for="{$index,el} in @first" ms-value="el">{{el}}</option>
+        </select>
+        <select name="second" id="secondS" ms-duplex="secondSelect">
+            <option ms-for="{$index,el} in @second" ms-value="el">{{el}}</option>
+        </select>
+    </div>
+    <script>
+        var one=[0,1,2,3,4,5];
+        var two=[0,1,2,3,4,5];
+        var oneCont=["day1","day2","day3","day4","day5"];
+        var twoCont=[
+                        {0:["所有",111,222,333,444]},
+                        {2:["所有",555,565,445]},
+                        {3:["所有",33888,44488]},
+                        {4:["所有",1118]},
+                        {5:["所有",11158,22552,33553,44224]}
+                    ];
+	    avalon.filters.valueS = function(val){
+            return 
+        }
+        var vm = avalon.define({
+            $id: "test",
+            first: one,
+			second:two,
+            firseSelect: oneCont,
+            secondSelect: twoCont
+        });
+        avalon.scan();
+    </script>
+</body>
+</html>

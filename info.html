@@ -1,0 +1,852 @@
+<style>
+    body{background:#fff !important;}
+.p-list-box-top{background: #ccc}/*隐藏底部图案*/
+#id_280{display: none}/*隐藏优惠专区*/
+.login-wrap .bar-welcome{display: none}/*隐藏顶部欢迎信息*/
+
+</style>
+<script>
+    $(".bar-welcome").show()
+           /*隐藏包团定制内容接机牌模块*/
+           $('.xm_img_title').find('img').remove();
+           $('.xm_img_title').attr('class','')
+</script>
+
+{{* 前台订单归属跟踪代码 *}}
+<div id="JS_Servers_Box" class="g-wrap"></div>
+<script type="text/javascript">
+    var JS_productInfoUrl = "{{$data.JS_productInfoUrl}}";
+    var JS_ProductsId = "{{$data.JS_ProductsId}}";
+    var U_data = {};
+    U_data.JS_productInfoUrl = "{{$data.JS_productInfoUrl}}";
+    U_data.JS_ProductsId = "{{$data.JS_ProductsId}}";
+$(function(){
+    var url = G.url_rand(JS_productInfoUrl);
+    var pId = parseInt(JS_ProductsId, 10);
+    var gets = URL.getParame();
+    url+='&action=getServersBox&products_id='+pId+'&a='+ gets['a'] +'&callback=?';
+    $.getJSON(url, function(data){
+        if(data['str']){
+            $('#JS_Servers_Box').html(data['str']);
+        }
+    });
+
+    var changeProductStockStatus=function(product_stock_status_url,product_id){
+
+        $.ajax({
+            url : product_stock_status_url+'&onlybody=1',
+            type:"POST",
+            data:{action:'checkChangeToNoFood',products_id:product_id,onlybody:1},
+            dataType:"json",
+            success: function(d){
+            }
+
+        })
+
+    }
+    changeProductStockStatus(U_data.JS_productInfoUrl,U_data.JS_ProductsId);
+
+});
+</script>
+
+<!--<div class="cu-info-ad-wrap">-->
+    <!--{{if $data.arrTL}}-->
+    <!--<img src="{{$data.arrTL.picture_url}}" alt="{{$data.product.info.products_name}}" width="100%" height="500"/>-->
+    <!--{{/if}}-->
+    <!--<div class="cu-info-ad-sh"></div>-->
+    <!--<div class="cu-info-ad-box">-->
+        <!--<div class="cu-wrap clear">-->
+            <!--<div class="cu-info-ad-tit">-->
+                <!--<h1>{{$data.product.info.products_name}}</h1>-->
+                <!--<div class="cu-info-ad-code"><span class="fl">{{$data.product.info.products_subtitle}}</span><span class="fr JS_ismodel_box"   style="display:none;">团号：<i class="JS_ismodel">{{$data.product.info.products_model}}</i></span></div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="cu-wrap">
+    <div class="cu-crumbs-nav">
+        {{$data.x_nav}}
+    </div>
+    <div class="cu-list-main" style="margin-bottom:30px;">
+        <div class="custo-list-img">
+            <img src="/tpl/www/image/custommade/cu-list-01.jpg"  alt="{{$val.products_name}}"/>
+        </div>
+        <dl class="custo-list-conte" style="bottom:0;">
+            <dt><a href="javascript:eval(0)">1日游产品原型[精华一日游]圣塔莫尼卡+比佛利山庄+罗迪欧大道+洛杉矶古城|畅享之旅</a> </dt>
+            <dd>走四方根据用户&nbsp;"<strong>hdfk</strong>"&nbsp;的需求制定旅行方案</dd>
+            <dd class="cu-start-city">出发城市 : <span>洛杉矶\纽约</span></dd>
+            <dd class="cu-pro-num">人数 : <span>6人</span></dd>
+            <dd class="cu-pro-pri">人均预算 : <span>$666</span></dd>
+            <dd class="cu-program">方案编号 : <span>SD899-79898</span></dd>
+        </dl>
+    </div>
+
+    <div class="cu-travel-chara">
+        <div class="fl title">行程特色</div>
+        <div class="fl content">
+            <p class="fl">清晨，驱车途径格兰峡谷，来到大峡谷起源点 - 【鲍威尔湖】。其湖岸线长1960英里，有96个峡谷，是全美第二大人工湖，远看湖为蓝色，近看湖水却是碧绿色，天清、云白、岩红、水秀，相应成彰，交织出一幅动人美景。随后前往世界十大著名摄影胜地之一的色彩斑斓的【羚羊彩穴】，换乘印第安向导的吉普车，由印第安向导带领，徒步进入羚羊峡谷，当斑驳的红砂岩经过自然束光折射幻化出艳丽的色彩，流光溢彩，如梦幻的丝绸，层层叠叠，如绚丽梦境，飘飘忽忽。</p>
+            <button class="custo-btn travel-chara-btn">我也要定制</button>
+            <span class="cu-online-adv">在线咨询</span>
+        </div>
+    </div>
+
+    <div class="cu-user-rat">
+        <div class="fl title">用户评价</div>
+        <div class="fl content">
+            <dl>
+                <dt class="fl"><img src="/tpl/www/image/custommade/user-img.jpg" alt="##"><p>李*鹏</p></dt>
+                <dd class="fl cuto-satis">
+                    行程: <span>非常满意</span>
+                    导游: <span>非常满意</span>
+                    订购: <span>非常满意</span>
+                    <span>01/27/2017</span>
+                </dd>
+                <dd class="fl">游很贴心！表扬表扬！我的手机落在吃饭的地方了，需要自己离团去拿一下，导游就帮我打电话联系什么的，处理问题很有效。确认手机在店里以后，他在自由活动的时候陪我去拿回来了，既没有耽误大家时间，也帮我拿回了手机。除了这个小插曲，一路都很愉快！谢谢走四方~~~
+                    既没有耽误大家时间，也帮我拿回了手机。除了这个小插曲，一路都很愉快！谢谢走四方~~~
+                    在自由活动的时候陪我去拿回来了，既没有耽误大家时间，也帮我拿回了手机。除了这个小插曲，一路都很愉快！谢谢走四方~~~</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!--<div class="cu-info-box-a clear">
+        <div class="cu-info-box-a-l fl">
+            <div class="cu-info-box-a-img">
+                <div class="cu-info-day-img-box" style="width: 100%;height: 100%;margin: 0">
+                    <ul class="cu-info-day-img">
+                        {{* 由于第一张图片被当成封面图片未加入到图片列表(此处将第一张图片默认加入到幻灯片队列)*}}
+                        {{if $data.product.info.productsImageSrc}}
+                            <li><img src="{{$data.product.info.productsImageSrc}}" width="415" height="284" alt="{{$data.product.info.products_subtitle}}"/></li>
+                        {{/if}}
+                        {{foreach name=pic from=$data.product.info.imagesList  item=a }}
+                        <li><img src="{{$a.picture_url}}" width="415" height="284" alt="{{$a.picture_name}}"/></li>
+                        {{/foreach}}
+                    </ul>
+                    <p class="cu-info-btn-l cu-info-ico"></p>
+                    <p class="cu-info-btn-r cu-info-ico"></p>
+                    <div class="cu-info-dot">
+                        <ul class="clear">
+                            {{if $data.product.info.productsImageSrc}}
+                                <li></li>
+                            {{/if}}
+                            {{foreach name=pic_nav from=$data.product.info.imagesList item=a}}
+                            <li></li>
+                            {{/foreach}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cu-info-box-a-c fl"></div>
+        <div class="cu-info-box-a-r fl">
+            <div class="w650">
+                <div class="cu-info-box-a-tit">行程亮点</div>
+                <div class="cu-info-box-a-txt">{{$data.product.info.products_small_description}}</div>
+                <div class="cu-info-box-a-btm clear">
+                    <div class="cu-info-box-a-btm-l fl">
+                        <p>{{$data.product.info.priceTag}}/人</p>
+                        <span>参团城市：{{foreach item=val from=$data.product.info.startCity key=key name=startcity}}{{$val}}{{if !$smarty.foreach.startcity.last}}，{{/if}}{{/foreach}}</span>
+                    </div>
+                    <div class="cu-info-box-a-btm-r fl">
+                        {{*已经卖完产品无法预订，订购日期不可选*}}
+                        {{if $data.product.info.products_stock_status&&$data.mbooking_status}}
+                            <a href="{{$data.order_url}}">立即订购</a>
+                        {{else}}
+                            <a class="active" href="javascript:;">立即订购</a>
+                        {{/if}}
+                        &lt;!&ndash;<a href="{{if $data.product.info.products_stock_status}}{{$data.order_url}}{{else}}javascript:void(0);{{/if}}">立即订购</a>&ndash;&gt;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="cuto-info-main">
+        <div class="cuto-main-left fl">
+            <ul>
+                <li class="left-first">行程介绍</li>
+                {{foreach item=val name=travels_days from=$data.product.travels}}
+                <li class="{{if $smarty.foreach.travels_days.index == 0}}selected{{/if}}" data-day="{{$val.days_id}}">D{{$val.days_id}}</li>
+                {{/foreach}}
+            </ul>
+        </div>
+        <div class="cuto-main-right fl">
+            {{foreach item=val name=travels_days from=$data.product.travels}}
+                <div class="cuto-info-day" day="{{$val.days_id}}">
+                    <h1>第<span>{{$val.days_id}}</span>天&nbsp;&nbsp;&nbsp;&nbsp;{{$val.travel_name}}</h1>
+                    {{if $val.travel_content}}
+                    <div class="md-a-txt">
+                        {{$val.travel_content|nl2br}}
+                        <!--您愉快的行程将从您抵达美国西海岸最大的城市&#45;&#45;【天使之城】洛杉矶那刻开始，热情的导游将身着黄色制服，手举黄色小旗或手持走四方接机牌等候您的到来。经过约45分钟的路程，抵达酒店。酒店的入住时间为下午3:00PM，提早抵达-->
+                    </div>
+                    {{/if}}
+                    <div class="cuto-hotel">
+                        <strong>入住酒店:</strong>
+                        <!--4星级标准(可选)-->&nbsp;&nbsp;{{if $val.travelHotels}}{{$val.travelHotels|cat:"或者同等级酒店"}}{{elseif $val.travel_hotel}}{{$val.travel_hotel|cat:"或者同等级酒店"}}{{else}}{{"无"}}{{/if}}
+                    </div>
+                    {{if $val.viaAttractions}}
+                    <div class="cuto-attrac-title">当天主要游玩景点:</div>
+                    {{foreach name=day_list1 item=v from=$val.viaAttractions}}
+                    <dl class="cuto-attrac-cont">
+                        <dt class="fl"><img src="{{$v.Images[0].picture_url}}" width="240" height="160" alt="{{$v.text}}"/></dt>
+                        <dd class="fr">
+                            <h2>{{$v.text}}</h2>
+                            <p>{{$v.simple_info}}</p>
+                        </dd>
+                    </dl>
+                    {{/foreach}}
+                    {{/if}}
+                </div>
+            {{/foreach}}
+        </div>
+    </div>
+
+    <div class="cuto-sim-case">
+        <div class="case-title">
+            <span><i></i>相似案例</span>
+            <a href="###" class="case-more fr">更多&gt;&gt;</a>
+        </div>
+        <div class="case-content">
+            <dl class="fl">
+                <dt style="background-image:url(/tpl/www/image/custommade/cuto-case.jpg);background-size:cover;">
+                    <h3 class="case-name">黄石国家公园</h3>
+                    <span class="case-en-name">YELLOWSTONE</span>
+                    <p class="case-day-peo">
+                        <span>9天</span>
+                        <span>5人</span>
+                    </p>
+                </dt>
+                <dd>
+                    <p class="cu-case-price">旅行总花费：<span>25450元</span>/人</p>
+                    <p class="cu-case-review">客服678非常给力，我预定行程时间很紧，她还数次跟我联系告知进度，点个大赞。最好玩要数Las Vegas了，西峡谷的小飞机，La Reve水秀值得一看非常精彩。 参观的风景也</p>
+                </dd>
+            </dl>
+            <dl class="fl">
+                <dt style="background-image:url(/tpl/www/image/custommade/cuto-case.jpg);background-size:cover;">
+                    <h3 class="case-name">黄石国家公园</h3>
+                    <span class="case-en-name">YELLOWSTONE</span>
+                    <p class="case-day-peo">
+                        <span>9天</span>
+                        <span>5人</span>
+                    </p>
+                </dt>
+                <dd>
+                    <p class="cu-case-price">旅行总花费：<span>25450元</span>/人</p>
+                    <p class="cu-case-review">客服678非常给力，我预定行程时间很紧，她还数次跟我联系告知进度，点个大赞。最好玩要数Las Vegas了，西峡谷的小飞机，La Reve水秀值得一看非常精彩。 参观的风景也</p>
+                </dd>
+            </dl>
+            <dl class="fl">
+                <dt style="background-image:url(/tpl/www/image/custommade/cuto-case.jpg);background-size:cover;">
+                    <h3 class="case-name">黄石国家公园</h3>
+                    <span class="case-en-name">YELLOWSTONE</span>
+                    <p class="case-day-peo">
+                        <span>9天</span>
+                        <span>5人</span>
+                    </p>
+                </dt>
+                <dd>
+                    <p class="cu-case-price">旅行总花费：<span>25450元</span>/人</p>
+                    <p class="cu-case-review">客服678非常给力，我预定行程时间很紧，她还数次跟我联系告知进度，点个大赞。最好玩要数Las Vegas了，西峡谷的小飞机，La Reve水秀值得一看非常精彩。 参观的风景也</p>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="modal">
+        {{include file="templates/custommade/m_custo_from.html" page="custo-info" display="block" areaS="true" title="5秒钟提交 - 1小时内回复 - 24小时内制定行程"}}
+    </div>
+
+   <!-- <div style="width: 1200px;height: 58px;" id="Na">
+        <div class="cu-info-box-tab clear" id="Navigation">
+            <ul class="cu-info-box-tab-l theme-a fl">
+                <li class="active0 theme-li-a">行程介绍</li>
+                <li class="theme-li-b">价格说明</li>
+                <li class="theme-li-c">预定须知</li>
+            </ul>
+            <div class="cu-info-box-tab-r fr">
+                <div class="cu-info-text">
+                <p>不能满足您的需求，那就试试个性定制吧</p>
+                <a href="{{$data.dinzhi_href}}" class="cu-info-ico"></a>
+                </div>
+                <div class="cu-info-btn fl">
+                    {{*已经卖完产品无法预订，订购日期不可选*}}
+                    {{if $data.product.info.products_stock_status&&$data.mbooking_status}}
+                    <a href="{{$data.order_url}}">立即订购</a>
+                    {{else}}
+                    <a class="active" href="javascript:;">立即订购</a>
+                    {{/if}}
+                    &lt;!&ndash;<a href="{{if $data.product.info.products_stock_status}}{{$data.order_url}}{{else}}javascript:void(0);{{/if}}">立即订购</a>&ndash;&gt;
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="cu-info-main clear js-note">
+        <div class="cu-info-main-l fl">
+            <ul class="day-list" style="padding: 0">
+                <div class="day-list-rad">
+                {{foreach item=val name=travels_days from=$data.product.travels}}
+                <li class="{{if $smarty.foreach.travels_days.index % 2 == 0}}day-list-l{{else}}day-list-r{{/if}}" daylist="{{$val.days_id}}"><strong>{{$val.days_id}}</strong></li>
+                {{/foreach}}
+                </div>
+            </ul>
+            <div class="cu-info-main-l-bg"></div>
+        </div>
+        <div class="cu-info-main-r fr">
+            {{if $data.product.info.products_notes}}
+            <div class="md-a-box clear mb35 w1014">
+                <span class="md-a-min-tit fl">特殊说明：</span>
+                <div class="md-a-cont fl">
+                    <div class="md-a-spe-txt">
+                        {{$data.product.info.products_notes}}
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            {{foreach item=val name=travels_days from=$data.product.travels}}
+            <div class="cu-info-day" day="{{$val.days_id}}">
+                <dl class="cu-info-day-nav clear">
+                    <dt class="clear">
+                        <i class="cu-info-ico"></i>
+                        <strong>第{{$val.days_id}}天:</strong>
+                    </dt>
+                    <dd class="clear">
+                        {{$val.travel_name}}
+                    </dd>
+                </dl>
+
+                {{if $val.travel_content}}
+                <div class="md-a-txt">
+                    {{$val.travel_content|nl2br}}
+                </div>
+                {{/if}}
+
+                {{if $val.travel_tips}}
+                <div class="md-a-txt" id="md-a-txt-WenXin">
+                    <p class="md-a-txt-tit">温馨提示:</p>
+                    {{$val.travel_tips|nl2br}}
+                </div>
+                {{/if}}
+
+                {{if $val.viaAttractions}}
+                &lt;!&ndash;<div class="cu-info-day-tips">今天可到达的景点如下：</div>&ndash;&gt;
+                <div class="cu-info-day-axis-wrap">
+                    <div class="cu-info-day-axis-box">
+                        <ul class="cu-info-day-axis address">
+                            {{foreach name=day_list item=v from=$val.viaAttractions}}
+                            <li{{if $smarty.foreach.day_list.first}} class="active"{{/if}} data-id="{{$v.id}}">
+                            <i class="cu-info-ico"></i>
+                            <span>{{$v.text}}</span>
+                            </li>
+                            {{/foreach}}
+                        </ul>
+                    </div>
+					&lt;!&ndash;
+					<p class="cu-info-day-axis-p cust-ico"></p>
+                    <p class="cu-info-day-axis-n cust-ico"></p>
+					&ndash;&gt;
+
+                </div>
+                {{/if}}
+
+                {{foreach name=day_list1 item=v from=$val.viaAttractions}}
+                <div class="cu-info-day-intr clear"  data-id="{{$v.id}}">
+                    <div class="cu-info-day-intr-l fl">
+                        <div class="cu-info-day-img-box" index="0">
+                            <ul class="cu-info-day-img">
+                                {{foreach name=day_list_image item=v1 from=$v.Images}}
+                                <li><img src="{{$v1.picture_url}}" width="270" height="180" alt="{{$v.text}}"/></li>
+                                {{/foreach}}
+                            </ul>
+                            <p class="cu-info-btn-l cu-info-ico"></p>
+                            <p class="cu-info-btn-r cu-info-ico"></p>
+                            <div class="cu-info-dot">
+                                <ul class="clear">
+                                    {{foreach name=day_list_image item=v1 from=$v.Images}}
+                                    <li></li>
+                                    {{/foreach}}
+                                </ul>
+                            </div>
+                        </div>
+
+                        &lt;!&ndash; {{foreach name=day_list_image item=v1 from=$v.Images}}
+                         <img{{if !$smarty.foreach.day_list_image.first}} style="display:none"{{/if}} src="{{$v1.picture_url}}" width="270" height="180" alt=""/>
+                         {{/foreach}}&ndash;&gt;
+                    </div>
+                    <div class="cu-info-day-intr-r fl">
+                        <h4>{{$v.text}}</h4>
+                        <p>{{$v.simple_info}}</p>
+                    </div>
+
+                </div>
+                {{/foreach}}
+                {{* 交通：{{$val.transport}} *}}
+                <ul class="cu-info-day-sel clear">
+                    <li class="mr10">
+                        <span><i class="cu-info-ico cu-info-day-ico1"></i></span>
+                        <p>可选餐厅：早餐：{{if $val.foodsBreakfast}} {{$val.foodsBreakfast}} {{else}}不含{{/if}}&nbsp;&nbsp;
+                            午餐：{{if $val.foodsLunch}} {{$val.foodsLunch}} {{else}}不含{{/if}}&nbsp;&nbsp;
+                            晚餐：{{if $val.foodsDinner}} {{$val.foodsDinner}} {{else}}不含{{/if}}&nbsp;&nbsp;</p>
+                    </li>
+                    <li>
+                        <span><i class="cu-info-ico cu-info-day-ico2"></i></span>
+                        <p>可选酒店：{{if $val.travelHotels}}{{$val.travelHotels|cat:"或者同等级酒店"}}{{elseif $val.travel_hotel}}{{$val.travel_hotel|cat:"或者同等级酒店"}}{{else}}{{"无"}}{{/if}} </p>
+                    </li>
+                </ul>
+
+            </div>
+            {{/foreach}}
+
+        </div>
+    </div>-->
+
+    <!--<div class="cu-info-box-tab clear">
+        &lt;!&ndash;<ul class="cu-info-box-tab-l theme-b fl">&ndash;&gt;
+        &lt;!&ndash;<li>参考行程</li>&ndash;&gt;
+        &lt;!&ndash;<li class="active">价格说明</li>&ndash;&gt;
+        &lt;!&ndash;<li>预定须知</li>&ndash;&gt;
+        &lt;!&ndash;</ul>&ndash;&gt;
+        &lt;!&ndash;<div class="cu-info-box-tab-r fr">&ndash;&gt;
+        &lt;!&ndash;<p>不能满足您的需求，那就试试个性定制吧</p>&ndash;&gt;
+        &lt;!&ndash;<a href="#" class="cu-info-ico"></a>&ndash;&gt;
+        &lt;!&ndash;</div>&ndash;&gt;
+    </div>
+    <div class="cu-info-box-txt theme-b clear js-note" id="price">
+        <p class="cu-info-box-txt-tit">费用包括</p><br/>
+        {{$data.product.info.products_other_description}}
+        {{*<ul class="cu-info-box-txt-list clear">
+
+        <li class="clear"><i></i><span>最具经验的专职双语导游和超过10年驾驶经验的车长</span></li>
+        <li class="clear"><i></i><span>最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长</span></li>
+        <li class="clear"><i></i><span>最具经验的专职双语导游和超过10年驾驶经验的车长</span></li>
+    </ul>*}}
+        <p class="cu-info-box-txt-tit" style="margin-top: 30px;">费用不包括</p><br/>
+        {{$data.product.info.products_package_excludes}}
+        {{*<ul class="cu-info-box-txt-list clear">
+        <li class="clear"><i></i><span>最具经验的专职双语导游和超过10年驾驶经验的车长</span></li>
+        <li class="clear"><i></i><span>最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长最具经验的专职双语导游和超过10年驾驶经验的车长</span></li>
+        <li class="clear"><i></i><span>最具经验的专职双语导游和超过10年驾驶经验的车长</span></li>
+    </ul>*}}
+    </div>
+
+    <div class="cu-info-box-tab clear">
+        &lt;!&ndash;<ul class="cu-info-box-tab-l theme-c fl">&ndash;&gt;
+        &lt;!&ndash;<li>参考行程</li>&ndash;&gt;
+        &lt;!&ndash;<li>价格说明</li>&ndash;&gt;
+        &lt;!&ndash;<li class="active">预定须知</li>&ndash;&gt;
+        &lt;!&ndash;</ul>&ndash;&gt;
+        &lt;!&ndash;<div class="cu-info-box-tab-r fr">&ndash;&gt;
+        &lt;!&ndash;<p>不能满足您的需求，那就试试个性定制吧</p>&ndash;&gt;
+        &lt;!&ndash;<a href="#" class="cu-info-ico"></a>&ndash;&gt;
+        &lt;!&ndash;&lt;!&ndash; <a href="#" class="cu-info-ico active"></a>&ndash;&gt;&ndash;&gt;
+        &lt;!&ndash;</div>&ndash;&gt;
+    </div>
+    <div class="cu-info-box-txt theme-c clear js-note" id="bookNotes">
+        <p class="cu-info-box-txt-tit">预定须知</p><br/>
+        {{$data.product.info.products_package_special_notes}}
+    </div>-->
+</div>
+<script type="text/javascript">
+//滚动事件
+$(function(){
+//    我要定制按钮
+    $(".cu-travel-chara .travel-chara-btn").click(function(){
+        var text="我要定制该方案("+$(".cu-program span").text()+")";
+        $(".custo-info .cu-dest").val(text);
+        $(".modal").stop(true).fadeIn(1000);
+    });
+    $(".modal-close").click(function(){
+        $(".modal").stop(true).fadeOut(1000);
+    });
+    $(".modal").click(function(e){
+        $(".modal").stop(true).fadeOut(1000);
+    });
+    $(".modal-content").click(function(e){
+        e.stopPropagation();
+    });
+
+//    在线咨询
+    $(".cu-travel-chara .cu-online-adv").click(function(){
+        window.open('http://wpa.qq.com/msgrd?v=3&uin=2355652766&site=私人定制&menu=yes','_blank');
+    });
+
+    /*走四方接机牌*/
+    /*效果写在custommade_index。css  的内容处行程内容描述文本类 mengdj*/
+    $('.md-a-txt a.xm_img_title').hover(function(event){
+        var _this=$(this);
+        //判断左右侧，及其函数
+        var _winLeft = $(window).width() / 2;
+        var _imgWid = _this.find('img').width();
+        if(event.pageX >= _winLeft || _this.width() >= 930){
+            //console.log('右侧');
+            _this.find('img').css({
+                'left': -_imgWid+20+'px'
+            })
+        }else {
+            //console.log('左侧');
+            _this.find('img').css({
+                'left':'-5px'
+            })
+        }
+    },function(){ });
+
+    /*温馨提示的虚线框*/
+    /*$('.cu-info-day .md-a-txt p.md-a-txt-tit').parent('.md-a-txt').css({
+        padding: "14px 14px 16px 20px",
+        "padding-left":"18px",
+        border: "1px dashed #ccc"
+    });*/
+
+
+    //做错行程天数浮动
+    var paramObj={
+        top:$('.cuto-main-left').offset().top,
+        h:$('.cuto-info-main').outerHeight(true),
+        cutoInfoDay:$('.cuto-info-day'),
+        length:$('.cuto-info-day').length,
+        cutoInfoMain:$('.cuto-info-main'),
+        dayList:$('.cuto-main-left ul'),
+        dayListHeight:$('.cuto-main-left ul').height(),
+        cutoInfoMainHeight:$('.cuto-info-main').height(),
+        cutoInfoMainWidth:$('.cuto-info-main').width(),
+        infoDayHeight:$('.cuto-main-right').eq(0).height()
+    };
+    //日期切换
+    $('.cuto-main-left').find('li').click(function(){
+        var _this = $(this);
+        $('.cuto-info-day').each(function(i){
+            if(_this.data('day') == $(this).attr('day')){
+                $('html,body').stop(true,false).animate({scrollTop:$(this).offset().top});
+            }
+        });
+//        _this.addClass("selected").siblings().removeClass("selected");
+    });
+
+    var scrollFlo = function(){
+        var scrollTop = $(document).scrollTop();
+        //左边天数悬浮
+        var paramTrip_w = document.documentElement.clientWidth || document.body.clientWidth;
+        if(scrollTop > paramObj.top){
+            if(scrollTop<paramObj.cutoInfoMain.offset().top+paramObj.cutoInfoMainHeight-paramObj.dayListHeight){
+                paramObj.dayList.css({'top':0,position:"fixed",'left':(paramTrip_w-paramObj.cutoInfoMainWidth)/2});
+            }else{
+                paramObj.dayList.css({'top':paramObj.cutoInfoMainHeight-paramObj.dayListHeight,position:"absolute",'left':0});
+            }
+        }else{
+            paramObj.dayList.css({'top':0,position:"relative",left:0});
+        }
+
+        //（左导航）切换选中天数
+        var _zLen = $(".cuto-info-day").length;
+        for(var z=0;z<_zLen;z++){
+            if(scrollTop > $(".cuto-info-day").eq(z).offset().top-300){
+                $(".cuto-main-left ul").find("li").eq(z+1).addClass("selected").siblings().removeClass("selected");
+            };
+        };
+    };
+    scrollFlo();
+    $(window).bind("scroll",scrollFlo);
+    $(window).resize(function(){
+        scrollFlo();
+    });
+
+
+    /*var paramTrip={
+        top:$('.cu-info-main-l').offset().top,
+        h:$('.cu-info-main').outerHeight(true),
+        cuInfoDay:$('.cu-info-day'),
+        //rightNavShow:$('.cu-info-day'), //右导航 景点
+        leftDayNavShow:$('.cu-info-day'),// 天数节点
+        length:$('.cu-info-day').length,
+        cuInfoMain:$('.cu-info-main'),
+        dayList:$('.day-list'),
+        cuInfoMainHeight:$('.cu-info-main').height(),
+        cuInfoMainWidth:$('.cu-info-main').width(),
+        dayListHeight:$('.day-list').height(),
+        infoDayHeight:$('.cu-info-main-r').eq(0).height(),
+        boxabl:$('.cu-info-box-tab-l'),
+        w:document.documentElement.clientWidth || document.body.clientWidth,
+        NaTop:$('#Na').offset().top
+    };
+    var startFirst=new Array(),
+            endFirst=new Array(),
+            jsNote=$(".js-note"),
+            jsNotelen=jsNote.length,
+            jsNoteTop=new Array(),
+            cuInfoDayTop=new Array(),
+            leftDayNavShow=new Array(), // 天数节点
+            //rightNavShow=new Array(),   //右景点（不确定是否存在）
+            flag=new Array();
+    for(var i = 0;i <= paramTrip.length-1;i++){
+        startFirst[i]=paramTrip.cuInfoDay.eq(i).position().top + 20;
+        endFirst[i]=$('.cu-info-day-sel').eq(i).position().top - 90;
+        cuInfoDayTop[i]=paramTrip.cuInfoDay.eq(i).offset().top;
+        leftDayNavShow[i]=paramTrip.leftDayNavShow.eq(i).offset().top; // 天数节点
+        flag[i]=paramTrip.cuInfoDay.eq(i).attr('day');
+    }
+    jsNote.each(function(i){
+        jsNoteTop[i]=$(this).offset().top;
+    });
+
+    //滚动监视
+    var goscroll=function(){
+        var scrollTop = $(document).scrollTop();
+        //右边景点地址浮起
+        for(var i = 0;i <= paramTrip.length-1;i++){
+            // if(scrollTop >= cuInfoDayTop[i] && scrollTop <= cuInfoDayTop[i]+paramTrip.cuInfoDay.eq(i).height()-100){
+            if(paramTrip.leftDayNavShow.eq(i).find(".cu-info-day-intr:first").length > 0){
+                if(scrollTop >= paramTrip.leftDayNavShow.eq(i).find(".cu-info-day-intr:first").offset().top-150 && scrollTop <= cuInfoDayTop[i]+paramTrip.cuInfoDay.eq(i).height()-100){
+                    paramTrip.leftDayNavShow.eq(i).find('.cu-info-day-axis-box').addClass('start');
+                }else{
+                    paramTrip.leftDayNavShow.eq(i).find('.cu-info-day-axis-box').removeClass('start');
+                }
+                if(cuInfoDayTop[i]<scrollTop+100){
+                    paramTrip.dayList.children("li").eq(i).addClass('active').siblings().removeClass('active');
+                    //$('[daylist=' + flag[i] + ']').addClass('active').siblings().removeClass('active');
+                }
+            }
+        }
+
+        //左边天数悬浮
+        var paramTrip_w = document.documentElement.clientWidth || document.body.clientWidth;
+        if(scrollTop > paramTrip.NaTop){
+            if(scrollTop<paramTrip.cuInfoMain.offset().top+paramTrip.cuInfoMainHeight-paramTrip.dayListHeight-130){
+                paramTrip.dayList.css({'top':70,position:"fixed",'left':(paramTrip_w-paramTrip.cuInfoMainWidth)/2,'background':'#f3f3f3'});
+            }else{
+                paramTrip.dayList.css({'top':paramTrip.cuInfoMainHeight-paramTrip.dayListHeight-100,position:"absolute",'left':0});
+            }
+        }else{
+            paramTrip.dayList.css({'top':0,position:"absolute",left:0});
+        }
+
+        //添加导航条浮动
+        if(scrollTop > $('#Na').offset().top){
+            $('#Navigation').addClass('Navigation');
+            $('.cu-info-text').hide();
+            $('.cu-info-btn').show();
+
+        }else{
+            $('#Navigation').removeClass('Navigation');
+            $('.cu-info-text').show();
+            $('.cu-info-btn').hide();
+        }
+
+        //参考行程 价格说明 预订须知
+        for(var i=0;i<jsNotelen;i++){
+            if(jsNoteTop[i] < scrollTop+200){
+                paramTrip.boxabl.find('li').removeClass('active0 active1 active2');
+                paramTrip.boxabl.find('li').eq(i).addClass('active'+i);
+            }
+        }
+        //(上导航)切换右边选中地址
+        $('.cu-info-day-intr-r').each(function(k,v){
+            if(v.getBoundingClientRect().top <= 130 && v.getBoundingClientRect().top > 0){
+                var text = $(v).find('h4').text();
+                $(v).parents('.cu-info-day').find('.address li').each(function(k1,v1){
+                    if($(v1).find('span').text() == text){
+                        $(v1).siblings().removeClass('active');
+                        $(v1).addClass('active');
+                    }
+                })
+            }
+        });
+        //（左导航）切换选中天数
+        var _zLen = $(".cu-info-day").length;
+        for(var z=0;z<_zLen;z++){
+            if($(document).scrollTop() > $(".cu-info-day").eq(z).offset().top-150){
+                $(".day-list").find("li").eq(z).addClass("active").siblings().removeClass("active");
+            };
+        };
+    };
+    goscroll();
+    $(window).bind("scroll",goscroll);
+    $(window).resize(function(){
+        goscroll();
+    });*/
+
+    //打开控制台检测
+    var check = (function () {
+        var callbacks = [], timeLimit = 50, open = false;
+        setInterval(loop, 2000);
+        return {
+            addListener: function (fn) {
+                callbacks.push(fn);
+            },
+            cancleListenr: function (fn) {
+                callbacks = callbacks.filter(function (v) {
+                    return v !== fn;
+                });
+            }
+        }
+        function loop() {
+            var startTime = new Date();
+
+            if (new Date() - startTime > timeLimit) {
+                if (!open) {
+                    callbacks.forEach(function (fn) {
+                        fn.call(null);
+                    });
+                }
+                open = true;
+            } else {
+                open = false;
+            }
+        }
+    })();
+    check.addListener(function () {//打开控制台后，回调函数
+//        goscroll();
+        scrollFlo();
+    });
+
+    //点击滑动内容
+    /*$('.address').find('li').click(function(){
+        var text = $(this).children("span").text();
+        $(this).parents('.cu-info-day').find('h4').each(function(k,v){
+            if($(v).text() == text){
+                $('html,body').stop(true,false).animate({scrollTop:$(v).offset().top-150});
+            }
+        })
+    });*/
+    //点击切换地址栏
+    /*$('.address').find('li').click(function(){
+        $(this).stop().parent().find('li').removeClass('active');
+        $(this).stop().addClass('active');
+    })*/
+    //日期点击切换
+    /*$('.day-list').find('li').click(function(){
+        var that = $(this);
+        $('.cu-info-day').each(function(i){
+            if(that.attr('daylist') == $(this).attr('day')){
+                //console.log($(this).offset().top);
+                $('html,body').stop(true,false).animate({scrollTop:$(this).offset().top-100});
+            }
+        })
+        that.addClass("active").siblings().removeClass("active");
+    });*/
+
+    /*//导航条点击滚动
+    $('#Navigation').find('li').click(function(){
+        var text = $(this).text();
+        switch (text){
+            case '价格说明':
+                $('html,body').stop(true,false).animate({scrollTop:$('#price').offset().top-70});
+                break;
+            case '预定须知':
+                $('html,body').stop(true,false).animate({scrollTop:$('#bookNotes').offset().top-70});
+                break;
+            default :
+                $('html,body').stop(true,false).animate({scrollTop:$('.cu-info-main').offset().top-70},function(){
+                    $('.day-list').find("li:first-child").addClass("active").siblings("li").removeClass("active");
+                });
+        };
+    });*/
+});
+</script>
+<script type="text/javascript">
+    /*$(function(){
+        (function(){
+            function infoImg(obj,amaWidth){
+                var index = parseInt(obj.attr('index'));
+                var liLen = obj.find('.cu-info-day-img').find('li').length;
+                var ul = obj.find('.cu-info-day-img');
+                var dot = obj.find('.cu-info-dot').find('li');
+                var right = obj.find('.cu-info-btn-r');
+                var left = obj.find('.cu-info-btn-l');
+                var i=0;
+                dot.eq(0).addClass('active');
+                if(liLen <=1){
+                    right.hide();
+                    left.hide();
+                    obj.find('.cu-info-dot').hide();
+                }
+               /!* if(liLen == 0){
+                    obj.html('<div class="noimg"></div>');
+                }*!/
+                right.click(function(){
+                    if(i<liLen-1){
+                        i++;
+                    }
+                    else{
+                        i=0;
+                    }
+                    ul.stop(false,true).animate({left:-i*amaWidth},'slow');
+                    navLi(i)
+                });
+                left.click(function(){
+                    if(i>0){
+                        i--;
+                    }
+                    else{
+                        i=liLen-1;
+                    }
+                    ul.stop(false,true).animate({left:-i*amaWidth},'slow');
+                    navLi(i)
+                });
+
+                dot.click(function(){
+                    var liIndex = $(this).index();
+                    ul.animate({left:-liIndex*amaWidth},'slow');
+                    obj.attr('index',liIndex);
+                    $(this).addClass('active').siblings('li').removeClass('active');
+                    i=liIndex;
+                });
+                function navLi(i){
+                    dot.eq(i).addClass('active').siblings('li').removeClass('active');
+                }
+            }
+            $('.cu-info-day-img-box').each(function(){
+                var liWidth=$(this).width();
+                infoImg($(this),liWidth);
+            })
+        })();
+
+        (function(){
+            $('.cu-info-day-axis-wrap').each(function(index,domEle){
+                var ul = $(this).find('.cu-info-day-axis');
+                var li = ul.find('li');
+
+                var w = null;
+                li.each(function(){
+                    w+= $(this).outerWidth(true);
+                })
+
+                if(w > 930){
+                    var pBtn = $(this).find('.cu-info-day-axis-p');
+                    var nBtn = $(this).find('.cu-info-day-axis-n');
+                    var box = $(this).find('.cu-info-day-axis-box');
+                    ul.addClass('active');
+                    box.addClass('active');
+                    pBtn.show();
+
+
+                    pBtn.click(function(){
+                        ul.animate({'left': - box.outerWidth(true)},'slow',function(){
+                            pBtn.hide();
+                            nBtn.show();
+                        })
+                    })
+
+                    nBtn.click(function(){
+                        ul.animate({'left': 0},'slow',function(){
+                            nBtn.hide();
+                            pBtn.show();
+                        })
+                    })
+
+                }
+            })
+        })();
+    })*/
+</script>
+<script type="text/javascript">
+//    $(function(){
+//        $(".cu-info-main,.cu-info-box-a-l,.cu-info-box-a-r").corner("30px");
+//        $(".cu-info-box-a,.cu-info-box-txt").corner("40px");
+//        $(".cu-info-box-a-img").corner("25px");
+//    });
+</script>
+
+
+
