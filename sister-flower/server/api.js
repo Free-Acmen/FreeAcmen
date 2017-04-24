@@ -9,9 +9,11 @@ const router = express.Router();
 // 创建账号接口
 router.post('/api/login/createAccount',(req,res) => {
     // 这里的req.body能够使用就在index.js中引入了const bodyParser = require('body-parser')
+    // // POST user[name]=tobi&user[email]=tobi@learnboost.com  req.body.user.name  ==> "tobi"
     let newAccount = new models.Login({
         account : req.body.account,
-        password : req.body.password
+        password : req.body.password,
+        test : req.body.test
     });
     // 保存数据newAccount数据进mongoDB
     newAccount.save((err,data) => {
@@ -25,6 +27,7 @@ router.post('/api/login/createAccount',(req,res) => {
 // 获取已有账号接口
 router.get('/api/login/getAccount',(req,res) => {
     // 通过模型去查找数据库
+    // // GET search?q=tobi+ferret   req.query.q  ==> "tobi ferret"
     models.Login.find((err,data) => {
         if (err) {
             res.send(err);
